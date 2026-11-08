@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI with Ezzi — Systems we build</title>
+<meta name="description" content="AI sales agents, floor-plan software, ERP and automation — live systems built by AI with Ezzi, Karachi.">
+<meta property="og:title" content="AI with Ezzi — Systems we build">
+<meta property="og:description" content="A portfolio of live AI products: floor plans, sales agents, construction ops, ERP.">
+<meta property="og:image" content="shots/floorplan.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b0f14;--ink2:#111820;--cream:#f6f1e8;--muted:#9aa3ad;--gold:#c9a26b;--line:rgba(246,241,232,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font:16px/1.65 Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:#0b0f14}
+.wrap{width:min(1240px,calc(100% - 44px));margin:0 auto}
+.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300}
+.eyebrow{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:50;padding:18px 0;transition:.4s}
+header.scrolled{background:rgba(11,15,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:46px;height:auto}
+.brand span{font-family:"Cormorant Garamond",serif;font-size:19px;letter-spacing:.06em}
+.links{display:flex;gap:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(246,241,232,.7)}
+.links a:hover{color:var(--gold)}
+.cta{border:1px solid rgba(246,241,232,.3);padding:11px 20px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
+.cta:hover{background:var(--gold);border-color:var(--gold);color:#0b0f14}
+
+/* hero */
+.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:100px}
+.hero::before{content:"";position:absolute;inset:0;background:
+ radial-gradient(80% 60% at 70% 20%,rgba(201,162,107,.13),transparent 60%),
+ radial-gradient(60% 50% at 10% 90%,rgba(37,64,92,.35),transparent 65%)}
+.gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(246,241,232,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(246,241,232,.04) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent)}
+.hero-in{position:relative;z-index:2;padding:60px 0 80px}
+.hero h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(46px,7.6vw,96px);line-height:.98;letter-spacing:-.02em;max-width:16ch;margin:22px 0 26px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{max-width:56ch;color:#b9c1cb;font-size:16px}
+.hero-meta{display:flex;gap:44px;flex-wrap:wrap;margin-top:46px;padding-top:26px;border-top:1px solid var(--line)}
+.hero-meta div b{display:block;font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:400;color:var(--cream)}
+.hero-meta div span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.scroll{position:absolute;right:24px;bottom:30px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(246,241,232,.4);writing-mode:vertical-rl}
+
+/* section */
+section{padding:96px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px}
+.sec-head h2{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(34px,4.4vw,54px);line-height:1.05;margin-top:10px}
+.sec-head p{max-width:38ch;color:var(--muted);font-size:14px}
+
+/* cards */
+.work{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.card{background:var(--ink2);border:1px solid var(--line);overflow:hidden;position:relative;transition:.45s cubic-bezier(.22,.61,.36,1)}
+.card:hover{transform:translateY(-5px);border-color:rgba(201,162,107,.45);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.card .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0e141b;border-bottom:1px solid var(--line)}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1.1s cubic-bezier(.22,.61,.36,1);filter:saturate(.95)}
+.card:hover .shot img{transform:scale(1.04)}
+.tagline{position:absolute;top:14px;left:14px;background:rgba(11,15,20,.82);border:1px solid var(--line);padding:5px 10px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.body{padding:24px 26px 26px}
+.body h3{font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:400;margin-bottom:8px}
+.body p{font-size:13.5px;color:#a8b0ba;line-height:1.7;margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.tags span{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#8d97a3;border:1px solid var(--line);padding:4px 8px}
+.links-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--line)}
+.links-row a{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.links-row a:hover{text-decoration:underline}
+.private{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6f7885}
+
+/* wide feature */
+.feature{grid-column:span 2;display:grid;grid-template-columns:1.15fr .85fr}
+.feature .shot{aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line)}
+.feature .body{display:flex;flex-direction:column;justify-content:center;padding:40px}
+.feature .body h3{font-size:34px}
+
+/* video band */
+.video-band{background:var(--ink2);border-block:1px solid var(--line);padding:72px 0}
+.vb-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.vb-grid video{width:100%;border:1px solid var(--line);display:block;background:#000}
+.vb-grid h2{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,3.6vw,46px);font-weight:300;line-height:1.1;margin:10px 0 16px}
+.vb-grid p{color:var(--muted);font-size:14px;margin-bottom:22px}
+
+/* custom */
+.custom{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cc{border:1px solid var(--line);padding:26px;background:rgba(255,255,255,.015)}
+.cc b{display:block;font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:400;margin-bottom:8px}
+.cc p{font-size:13px;color:var(--muted)}
+.num{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:14px;display:block}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 36px}
+.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot img{width:54px}
+.foot .big{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,4vw,44px);line-height:1.15;max-width:20ch}
+.foot .col{font-size:12px;color:var(--muted);line-height:2}
+.foot .col b{color:var(--cream);font-weight:500;display:block;margin-bottom:6px;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.bottom{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:10.5px;color:#6f7885}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+ .links{display:none}
+ .work{grid-template-columns:1fr}
+ .feature{grid-column:span 1;grid-template-columns:1fr}
+ .feature .shot{border-right:0;border-bottom:1px solid var(--line);aspect-ratio:16/10}
+ .vb-grid{grid-template-columns:1fr}
+ .custom{grid-template-columns:1fr}
+ .hero-meta{gap:26px}
+}
+</style>
+</head>
+<body>
+
+<header id="h">
+ <div class="wrap nav">
+  <a class="brand" href="#top"><img src="logo.png" alt="AI with Ezzi"><span>AI with Ezzi</span></a>
+  <nav class="links"><a href="#work">Work</a><a href="#video">Demo</a><a href="#custom">Customise</a><a href="#contact">Contact</a></nav>
+  <a class="cta" href="#contact">Start a project</a>
+ </div>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="gridbg"></div>
+ <div class="wrap hero-in">
+  <span class="eyebrow">Karachi · AI systems in production</span>
+  <h1>We build the software your business <em>actually runs on.</em></h1>
+  <p>Sales agents on WhatsApp, floor-plan software your clients can use themselves, ERPs, construction ops and the automation between them. Not slide decks — live systems, running today.</p>
+  <div class="hero-meta">
+   <div><b>12+</b><span>Systems live</span></div>
+   <div><b>4</b><span>Countries</span></div>
+   <div><b>24/7</b><span>Agents on duty</span></div>
+   <div><b>Odoo · AI</b><span>Built in-house</span></div>
+  </div>
+ </div>
+ <span class="scroll">Scroll</span>
+</section>
+
+<section id="work">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div><span class="eyebrow">Selected work</span><h2>Everything here is live.</h2></div>
+   <p>Real screens from real systems. Where a product is client-private, the demo is available on request.</p>
+  </div>
+
+  <div class="work">
+
+   <article class="card feature reveal">
+    <div class="shot"><span class="tagline">Live demo</span><img src="shots/floorplan.png" alt="Floorplan AI designer"></div>
+    <div class="body">
+     <h3>Floorplan — AI interior &amp; kitchen design</h3>
+     <p>Your client describes the space in their own words. The floor plan appears live in 2D, then in 3D — with real equipment and products placed. Multi-tenant and white-label: each studio gets its own branded workspace and link.</p>
+     <div class="tags"><span>Voice + text AI</span><span>2D → 3D</span><span>White-label</span><span>Client-facing</span></div>
+     <div class="links-row"><a href="https://design.72.60.235.181.nip.io/t/kitchen-dunya/d/5ae0c17245604de6bb5361ddb5d17921c19d92a7" target="_blank" rel="noopener">Open live demo ↗</a><span class="private">Kitchen Dunya tenant</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">Agent</span><img src="shots/abc-agent.png" alt="ABC sales agent"></div>
+    <div class="body">
+     <h3>ABC Sales Agent</h3>
+     <p>A WhatsApp sales agent that answers product questions, qualifies the enquiry and keeps the conversation moving — without a human watching the phone.</p>
+     <div class="tags"><span>WhatsApp</span><span>Sales</span><span>LLM agent</span></div>
+     <div class="links-row"><a href="https://openclaw-abc-sales.srv1069133.hstgr.cloud" target="_blank" rel="noopener">Open agent ↗</a><span class="private">Live</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">Agent</span><img src="shots/construction-agent.png" alt="Construction management agent"></div>
+    <div class="body">
+     <h3>Construction Management</h3>
+     <p>Site operations on Frappe with an AI agent on top: progress, materials, issues and updates, answered in plain language instead of spreadsheets.</p>
+     <div class="tags"><span>Frappe</span><span>Operations</span><span>Agent</span></div>
+     <div class="links-row"><a href="https://openclaw-construction.srv1867380.hstgr.cloud" target="_blank" rel="noopener">Open agent ↗</a><span class="private">Live</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">Platform</span><img src="shots/dropinsight.png" alt="DropInsight analytics"></div>
+    <div class="body">
+     <h3>DropInsight — distribution analytics</h3>
+     <p>Track. Analyse. Grow. A distribution analytics platform for Lanka Pack: orders, routes, performance and the numbers that actually move the business.</p>
+     <div class="tags"><span>Analytics</span><span>Web app</span><span>Logistics</span></div>
+     <div class="links-row"><a href="https://lankapack.cloud" target="_blank" rel="noopener">Open platform ↗</a><span class="private">Sign-in live</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">ERP</span><img src="shots/nocodb.png" alt="Ops databases"></div>
+    <div class="body">
+     <h3>Odoo ERP — product &amp; internal</h3>
+     <p>Full Odoo implementations: sales, purchasing, inventory, accounting and manufacturing, with custom modules and WhatsApp intake wired in.</p>
+     <div class="tags"><span>Odoo 18/19</span><span>Custom modules</span><span>Accounting</span></div>
+     <div class="links-row"><a href="#contact">Private — request demo</a><span class="private">2 deployments</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">CRM</span><img src="shots/n8n.png" alt="Automation workflows"></div>
+    <div class="body">
+     <h3>MEK Steel CRM</h3>
+     <p>Lead dashboard, FastAPI intake, WhatsApp responder and Odoo CRM for a steel fabrication business — one pipeline from first message to quote.</p>
+     <div class="tags"><span>CRM</span><span>FastAPI</span><span>WhatsApp</span></div>
+     <div class="links-row"><a href="#contact">Private — request demo</a><span class="private">Client system</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">Platform</span><img src="shots/floorplan.png" alt="Trodac Odoo"></div>
+    <div class="body">
+     <h3>Trodac — Odoo 19 + bridge</h3>
+     <p>Odoo 19 for a trading business, plus a custom bridge that connects field teams and back-office without double entry.</p>
+     <div class="tags"><span>Odoo 19</span><span>Integration</span><span>Field ops</span></div>
+     <div class="links-row"><a href="#contact">Private — request demo</a><span class="private">Client system</span></div>
+    </div>
+   </article>
+
+   <article class="card reveal">
+    <div class="shot"><span class="tagline">Automation</span><img src="shots/n8n.png" alt="n8n automation"></div>
+    <div class="body">
+     <h3>n8n &amp; data pipelines</h3>
+     <p>The glue: scraping, enrichment, CRM sync, reporting and scheduled jobs — so data moves between systems without anyone copying and pasting.</p>
+     <div class="tags"><span>n8n</span><span>Scraping</span><span>Sync</span></div>
+     <div class="links-row"><a href="#contact">Private — request demo</a><span class="private">Internal</span></div>
+    </div>
+   </article>
+
+  </div>
+ </div>
+</section>
+
+<section id="video" class="video-band">
+ <div class="wrap vb-grid">
+  <div class="reveal">
+   <span class="eyebrow">See it work</span>
+   <h2>The client talks.<br>The plan appears.</h2>
+   <p>24 seconds, taken from a live tenant. No mockups.</p>
+   <a class="cta" href="https://hussainezzi.github.io/floorplan-demo/" target="_blank" rel="noopener">Watch full demo</a>
+  </div>
+  <video controls playsinline preload="metadata" poster="shots/floorplan.png">
+   <source src="https://hussainezzi.github.io/floorplan-demo/floorplan-demo.mp4" type="video/mp4">
+  </video>
+ </div>
+</section>
+
+<section id="custom">
+ <div class="wrap">
+  <div class="sec-head reveal">
+   <div><span class="eyebrow">What we can build for you</span><h2>Custom, on top of this base.</h2></div>
+   <p>Everything above is a starting point. We adapt it to your workflow, your brand and your data.</p>
+  </div>
+  <div class="custom">
+   <div class="cc reveal"><span class="num">01</span><b>Your own AI agent</b><p>WhatsApp or web, trained on your catalogue, pricing and tone. Handles enquiries, quotes and follow-ups.</p></div>
+   <div class="cc reveal"><span class="num">02</span><b>White-label client tools</b><p>A design or configurator tool under your logo, your link, your clients — like Floorplan for interior studios.</p></div>
+   <div class="cc reveal"><span class="num">03</span><b>Odoo modules</b><p>Custom fields, approvals, documents and portals built into Odoo 18/19 — no fragile spreadsheets on the side.</p></div>
+   <div class="cc reveal"><span class="num">04</span><b>Integrations</b><p>Your ERP talking to WhatsApp, your website, your bank, your logistics — bi-directional, not a nightly CSV.</p></div>
+   <div class="cc reveal"><span class="num">05</span><b>Dashboards</b><p>One screen for the numbers that matter: sales, pipeline, stock, site progress — live, not month-end.</p></div>
+   <div class="cc reveal"><span class="num">06</span><b>Automation &amp; scraping</b><p>Lead generation, enrichment, document parsing and scheduled jobs that remove the manual work.</p></div>
+  </div>
+ </div>
+</section>
+
+<footer id="contact">
+ <div class="wrap">
+  <div class="foot">
+   <div><img src="logo.png" alt="AI with Ezzi"><div class="big" style="margin-top:18px">Tell us what your business keeps doing by hand.</div></div>
+   <div class="col"><b>Contact</b>Hussain Ezzi<br>AI with Ezzi · Karachi<br><a href="mailto:hussain@aiwithezzi.com" style="color:var(--gold)">hussain@aiwithezzi.com</a></div>
+   <div class="col"><b>Build</b>Odoo 18 / 19<br>WhatsApp agents<br>AI + automation<br>Web platforms</div>
+  </div>
+  <div class="bottom"><span>© <span id="y"></span> AI with Ezzi. All rights reserved.</span><span>Systems, not slide decks.</span></div>
+ </div>
+</footer>
+</main>
+
+<script>
+ const h=document.getElementById('h');
+ addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>30),{passive:true});
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+ document.getElementById('y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
