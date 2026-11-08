@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Floorplan — VentureLab deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b0f14;--ink2:#111820;--cream:#f6f1e8;--muted:#9aa3ad;--gold:#c9a26b;--line:rgba(246,241,232,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{size:1600px 900px;margin:0}
+body{background:#333;font-family:Inter,Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slide{position:relative;width:1600px;height:900px;background:var(--ink);color:var(--cream);overflow:hidden;page-break-after:always;display:flex;flex-direction:column;justify-content:center;padding:86px 100px}
+.slide:last-child{page-break-after:auto}
+.bg{position:absolute;inset:0;background:radial-gradient(70% 55% at 78% 12%,rgba(201,162,107,.16),transparent 60%),radial-gradient(55% 55% at 4% 96%,rgba(37,64,92,.45),transparent 65%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(246,241,232,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(246,241,232,.04) 1px,transparent 1px);background-size:86px 86px;mask-image:radial-gradient(75% 70% at 50% 40%,#000,transparent)}
+.content{position:relative;z-index:2}
+.eyebrow{font-size:15px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:96px;line-height:.98;letter-spacing:-2px;margin:26px 0 24px}
+h1 em{font-style:italic;color:var(--gold)}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:300;font-size:72px;line-height:1.02;letter-spacing:-1px}
+h2 em{font-style:italic;color:var(--gold)}
+.sub{font-size:26px;color:#b9c1cb;line-height:1.5;max-width:1000px;font-weight:300}
+.footer{position:absolute;left:100px;right:100px;bottom:38px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(246,241,232,.35);z-index:2}
+.num{position:absolute;right:100px;bottom:34px;font-family:"Cormorant Garamond",serif;font-size:22px;color:rgba(246,241,232,.35);z-index:2}
+.logo{width:64px;margin-bottom:30px}
+
+ul.points{list-style:none;margin-top:34px;max-width:1100px}
+ul.points li{font-size:26px;line-height:1.55;color:#c3cad3;padding:14px 0 14px 42px;border-bottom:1px solid rgba(246,241,232,.09);position:relative;font-weight:300}
+ul.points li:before{content:"";position:absolute;left:0;top:30px;width:16px;height:1px;background:var(--gold)}
+ul.points b{color:var(--cream);font-weight:500}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:40px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+.card{border:1px solid var(--line);background:rgba(255,255,255,.02);padding:30px}
+.card b{display:block;font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:400;margin-bottom:10px}
+.card p{font-size:18px;color:var(--muted);line-height:1.6}
+.stat{font-family:"Cormorant Garamond",serif;font-size:64px;color:var(--gold);line-height:1}
+.statlabel{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#000}
+.shot img{width:100%;display:block}
+.shotbar{height:26px;background:#121a22;border-bottom:1px solid rgba(246,241,232,.1);display:flex;align-items:center;gap:6px;padding-left:12px}
+.dot{width:8px;height:8px;border-radius:4px;background:#3a4552}
+
+.flow{display:flex;align-items:center;gap:14px;margin-top:54px;flex-wrap:wrap}
+.step{border:1px solid var(--line);background:var(--ink2);padding:22px 24px;font-size:19px;color:var(--cream);border-radius:8px}
+.step.gold{border-color:rgba(201,162,107,.6);background:rgba(201,162,107,.08)}
+.arrow{color:var(--gold);font-size:24px}
+
+.quote{font-family:"Cormorant Garamond",serif;font-size:54px;line-height:1.2;max-width:1180px;font-weight:300}
+.quote em{font-style:italic;color:var(--gold)}
+
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.three img{width:100%;border:1px solid var(--line);display:block}
+.small{font-size:17px;color:var(--muted);line-height:1.6}
+.link{color:var(--gold);font-size:20px;letter-spacing:1px}
+table{width:100%;border-collapse:collapse;margin-top:30px}
+td,th{padding:18px 12px;border-bottom:1px solid rgba(246,241,232,.1);text-align:left;font-size:19px;font-weight:300}
+th{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.hl{color:var(--gold)}
+.ask{border:1px solid rgba(201,162,107,.55);background:rgba(201,162,107,.06);padding:34px;margin-top:30px}
+.ask b{color:var(--gold);font-size:14px;letter-spacing:3px;text-transform:uppercase;display:block;margin-bottom:12px}
+.ask p{font-size:22px;line-height:1.55;color:#d4dae1}
+</style></head>
+<body>
+
+<!-- 1 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <img class="logo" src="../logo.png" alt="AI with Ezzi">
+  <div class="eyebrow">AI with Ezzi · Karachi · VentureLab.ai</div>
+  <h1>The client sees<br>what they're <em>going to get.</em></h1>
+  <p class="sub">Agentic CAD for interior design. A sentence in — a full 2D plan and 3D walkthrough out, live, in front of the client.</p>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>2026</span></div><div class="num">01</div>
+</div>
+
+<!-- 2 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">The problem</div>
+  <h2>Design intent <em>dies in translation.</em></h2>
+  <ul class="points">
+   <li>The client describes a <b>feeling</b> — warm, open, not hotel-like. Not a drawing.</li>
+   <li>The requirement engineer <b>interprets</b> it, draws it, sends it back.</li>
+   <li>The client still can't read the drawing, so the loop starts again.</li>
+   <li>Every loop costs a <b>week, a revision fee</b> and sometimes the project.</li>
+  </ul>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Problem</span></div><div class="num">02</div>
+</div>
+
+<!-- 3 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">The insight</div>
+  <p class="quote">Clients don't buy square metres.<br>They buy <em>what they can picture.</em></p>
+  <p class="sub" style="margin-top:36px">The gap isn't design skill. It's the interface between the client's words and the engineer's model. Fix the interface, and the whole project speeds up.</p>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Insight</span></div><div class="num">03</div>
+</div>
+
+<!-- 4 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">The product</div>
+  <h2>Agentic CAD your client<br>can <em>talk to.</em></h2>
+  <ul class="points">
+   <li><b>Speak or type:</b> "a warm café kitchen with a cooking line, wash-up and cold store."</li>
+   <li>The plan appears <b>live in 2D</b>, then in <b>3D</b> — with real products placed.</li>
+   <li>The client edits by talking. The studio keeps control of the model.</li>
+   <li><b>White-label:</b> the studio's brand, its own tenant, its own link.</li>
+  </ul>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Product</span></div><div class="num">04</div>
+</div>
+
+<!-- 5 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Product · live screens</div>
+  <div class="two">
+   <div class="shot"><div class="shotbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><img src="../shots/floorplan.png" alt="Floorplan 2D"></div>
+   <div>
+    <h2 style="font-size:56px">One engine.<br><em>Two views.</em></h2>
+    <p class="sub" style="font-size:21px;margin-top:22px">The same model the client sees is the model the studio builds from. 2D plan and 3D scene stay in sync — no re-drawing between the pitch and the project.</p>
+   </div>
+  </div>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Product</span></div><div class="num">05</div>
+</div>
+
+<!-- 6 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">How it works</div>
+  <h2 style="font-size:64px">Natural language is<br>the <em>new interface.</em></h2>
+  <div class="flow">
+   <div class="step">Voice / text brief</div><div class="arrow">→</div>
+   <div class="step">Intent model <span style="color:var(--muted);font-size:14px">(DeepSeek)</span></div><div class="arrow">→</div>
+   <div class="step">Plan engine <span style="color:var(--muted);font-size:14px">(rooms, walls, flow)</span></div><div class="arrow">→</div>
+   <div class="step">3D scene</div><div class="arrow">→</div>
+   <div class="step gold">Products &amp; quote</div>
+  </div>
+  <p class="small" style="margin-top:34px;max-width:1100px">Voice layer via Deepgram, reasoning via DeepSeek, multi-tenant runtime on our own VPS. The studio can intervene at any step — the AI drafts, the professional decides.</p>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>How it works</span></div><div class="num">06</div>
+</div>
+
+<!-- 7 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Demo</div>
+  <div class="two">
+   <div>
+    <h2 style="font-size:58px">24 seconds.<br><em>Real product.</em></h2>
+    <p class="sub" style="font-size:20px;margin-top:20px">A live tenant, not a mockup. The brief is typed into the assistant; the plan and 3D appear in the same session.</p>
+    <p class="link" style="margin-top:26px">hussainezzi.github.io/floorplan-demo</p>
+   </div>
+   <div class="shot"><video src="https://hussainezzi.github.io/floorplan-demo/floorplan-demo.mp4" poster="../shots/floorplan.png" muted autoplay loop playsinline style="width:100%;display:block"></video></div>
+  </div>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Demo</span></div><div class="num">07</div>
+</div>
+
+<!-- 8 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Why it matters</div>
+  <h2 style="font-size:62px">Certainty before<br><em>construction.</em></h2>
+  <div class="cols">
+   <div class="card"><b>For the client</b><p>They see the room before it exists. No jargon, no imagining a floor plan. Fewer surprises, faster decisions.</p></div>
+   <div class="card"><b>For the studio</b><p>Fewer revision cycles, faster sign-off, a premium buying experience — and a model that carries into execution.</p></div>
+  </div>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Value</span></div><div class="num">08</div>
+</div>
+
+<!-- 9 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Why now</div>
+  <h2 style="font-size:62px">The pieces finally<br><em>line up.</em></h2>
+  <div class="cols3">
+   <div class="card"><b>LLMs</b><p>Can turn messy human language into structured geometry — reliably enough to draft.</p></div>
+   <div class="card"><b>Voice</b><p>Real-time speech is good enough that talking feels faster than clicking.</p></div>
+   <div class="card"><b>Browser 3D</b><p>A 3D walkthrough now runs on the client's phone, in the meeting.</p></div>
+  </div>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Why now</span></div><div class="num">09</div>
+</div>
+
+<!-- 10 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Market · wedge</div>
+  <h2 style="font-size:60px">Start where the gap<br><em>costs the most.</em></h2>
+  <ul class="points">
+   <li><b>Turnkey interior &amp; kitchen studios</b> — high ticket, visual, revision-heavy.</li>
+   <li>Then <b>fit-out contractors</b>, furniture retail and real-estate developers.</li>
+   <li>Initial geography: <b>Pakistan and the GCC</b>, where we already have live tenants and relationships.</li>
+  </ul>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Market</span></div><div class="num">10</div>
+</div>
+
+<!-- 11 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Business model</div>
+  <h2 style="font-size:58px">White-label SaaS,<br><em>per studio.</em></h2>
+  <table>
+   <tr><th>Revenue line</th><th>What it is</th></tr>
+   <tr><td class="hl">Tenant subscription</td><td>Monthly per studio, branded workspace and link</td></tr>
+   <tr><td>Onboarding</td><td>Catalogue, products and team setup</td></tr>
+   <tr><td>Usage / seats</td><td>Additional designers and client sessions</td></tr>
+   <tr><td>Quote &amp; catalogue add-ons</td><td>Product data, proposals, supplier integrations</td></tr>
+  </table>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Model</span></div><div class="num">11</div>
+</div>
+
+<!-- 12 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Traction</div>
+  <h2 style="font-size:58px">Built, deployed,<br><em>in use.</em></h2>
+  <div class="cols3" style="margin-top:34px">
+   <div><div class="stat">2</div><div class="statlabel">Live tenants</div><p class="small" style="margin-top:10px">Kitchen Dunya &amp; Hatimi Interiors</p></div>
+   <div><div class="stat">2D → 3D</div><div class="statlabel">Working product</div><p class="small" style="margin-top:10px">Voice and text, in production</p></div>
+   <div><div class="stat">24s</div><div class="statlabel">Live demo</div><p class="small" style="margin-top:10px">Public, no edits</p></div>
+  </div>
+  <p class="small" style="margin-top:34px">Pre-revenue, design-partner stage. Our advantage is that the product already runs real client sessions — not a prototype waiting for funding.</p>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Traction</span></div><div class="num">12</div>
+</div>
+
+<!-- 13 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Go to market</div>
+  <h2 style="font-size:58px">Sell through<br><em>the studios.</em></h2>
+  <ul class="points">
+   <li><b>Direct:</b> demo-led sales to interior and turnkey studios.</li>
+   <li><b>Channel:</b> partner with Odoo/ERP implementers and fit-out contractors who already sit in the deal.</li>
+   <li><b>White-label:</b> the studio's brand brings its own clients; we charge the studio.</li>
+   <li><b>Proof:</b> each tenant becomes a reference in its city.</li>
+  </ul>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>GTM</span></div><div class="num">13</div>
+</div>
+
+<!-- 14 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Competition</div>
+  <h2 style="font-size:56px">Professional tools.<br><em>Not client tools.</em></h2>
+  <table>
+   <tr><th>Category</th><th>What it does</th><th>Where we differ</th></tr>
+   <tr><td>AutoCAD / SketchUp</td><td>Drafting for professionals</td><td>Client can't use it alone</td></tr>
+   <tr><td>3D visualisers</td><td>Beautiful still images</td><td>Static, not editable live</td></tr>
+   <tr><td>Product configurators</td><td>One product, one choice</td><td>Whole room, whole plan</td></tr>
+   <tr><td class="hl">Floorplan</td><td class="hl">Agentic CAD for the client</td><td class="hl">Live 2D + 3D, white-label</td></tr>
+  </table>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Competition</span></div><div class="num">14</div>
+</div>
+
+<!-- 15 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="eyebrow">Roadmap</div>
+  <h2 style="font-size:58px">From plan to <em>purchase order.</em></h2>
+  <div class="cols3">
+   <div class="card"><b>Now</b><p>Voice and text → 2D plan → 3D, multi-tenant, live with two studios.</p></div>
+   <div class="card"><b>Next</b><p>Self-serve onboarding, catalogue → quote automation, more product libraries.</p></div>
+   <div class="card"><b>Later</b><p>VR walkthroughs, supplier pricing, execution tracking.</p></div>
+  </div>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Roadmap</span></div><div class="num">15</div>
+</div>
+
+<!-- 16 -->
+<div class="slide">
+ <div class="bg"></div><div class="grid"></div>
+ <div class="content">
+  <div class="two">
+   <div>
+    <div class="eyebrow">Team</div>
+    <h2 style="font-size:58px;margin-top:16px">AI with Ezzi</h2>
+    <p class="sub" style="font-size:20px;margin-top:18px">A small Karachi team building agentic systems: Odoo ERP, WhatsApp agents and AI products. We ship and run them — this deck's product is live today.</p>
+    <p class="small" style="margin-top:22px">Hussain Ezzi · Founder<br>hussain@aiwithezzi.com</p>
+   </div>
+   <div>
+    <div class="ask">
+     <b>What we want from VentureLab</b>
+     <p>Pilot introductions to interior and turnkey studios in Pakistan and the GCC — and the right investor conversations to productise self-serve multi-tenant onboarding.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="footer"><span>Floorplan</span><span>Team &amp; ask</span></div><div class="num">16</div>
+</div>
+
+</body></html>
