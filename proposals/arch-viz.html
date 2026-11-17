@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI with Ezzi — Architectural Visualization Proposal</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Helvetica, Arial, sans-serif; color: #12161a; background: #fff; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; background: #f6f1e7; }
+  .page:last-child { page-break-after: auto; }
+  .hero { position: absolute; inset: 0 0 88mm 0; background: #0d1116; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; opacity: .92; }
+  .hero:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,10,13,.72) 0%, rgba(8,10,13,.15) 35%, rgba(8,10,13,.88) 100%); }
+  .brand { position: absolute; top: 15mm; left: 16mm; display: flex; align-items: center; gap: 4mm; z-index: 2; }
+  .brand img { width: 15mm; height: 15mm; object-fit: contain; }
+  .brand .name { color: #fff; font-size: 13pt; letter-spacing: .18em; font-weight: 700; }
+  .brand .sub { color: #c8a45c; font-size: 7.5pt; letter-spacing: .22em; margin-top: 1.5mm; }
+  .hero-copy { position: absolute; left: 16mm; right: 16mm; bottom: 20mm; z-index: 2; }
+  .kicker { color: #c8a45c; font-size: 8pt; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 5mm; }
+  h1 { color: #fff; font-family: Georgia, serif; font-weight: 400; font-size: 34pt; line-height: 1.05; letter-spacing: -.01em; }
+  h1 em { color: #e7c98d; font-style: normal; }
+  .lede { color: #d9d4c9; font-size: 10pt; line-height: 1.55; margin-top: 6mm; max-width: 150mm; }
+  .lower { position: absolute; left: 16mm; right: 16mm; bottom: 14mm; }
+  .label { font-size: 7.5pt; letter-spacing: .22em; color: #8a6a33; text-transform: uppercase; margin-bottom: 4mm; }
+  .services { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 10mm; }
+  .service { border-top: 1px solid #d8cdb8; padding-top: 3mm; }
+  .service strong { display: block; font-family: Georgia, serif; font-size: 12pt; font-weight: 400; margin-bottom: 1.5mm; }
+  .service span { font-size: 8.5pt; line-height: 1.45; color: #4d4a43; }
+  .footnote { position: absolute; left: 16mm; right: 16mm; bottom: 7mm; font-size: 6.8pt; color: #7c766b; display: flex; justify-content: space-between; }
+
+  .page.two { background: #fffdf8; padding: 16mm; }
+  .topline { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e0d6c3; padding-bottom: 4mm; }
+  .topline .mark { font-size: 8pt; letter-spacing: .2em; color: #8a6a33; text-transform: uppercase; }
+  .topline .page-no { font-size: 7.5pt; color: #8c8578; }
+  h2 { font-family: Georgia, serif; font-weight: 400; font-size: 22pt; margin-top: 9mm; letter-spacing: -.01em; }
+  .intro { font-size: 9.2pt; line-height: 1.55; color: #4d4a43; margin-top: 3mm; max-width: 155mm; }
+  .packages { margin-top: 7mm; border-top: 1px solid #e0d6c3; }
+  .row { display: grid; grid-template-columns: 52mm 1fr 30mm; gap: 6mm; padding: 4.2mm 0; border-bottom: 1px solid #e9e0d1; align-items: start; }
+  .row .pkg { font-family: Georgia, serif; font-size: 11.5pt; }
+  .row .what { font-size: 8.4pt; line-height: 1.45; color: #555149; }
+  .row .price { font-size: 10pt; text-align: right; color: #12161a; }
+  .row .price small { display: block; font-size: 6.8pt; color: #8c8578; letter-spacing: .08em; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-top: 8mm; }
+  h3 { font-size: 7.6pt; letter-spacing: .2em; text-transform: uppercase; color: #8a6a33; margin-bottom: 3mm; }
+  ol, ul { margin-left: 4mm; }
+  li { font-size: 8.6pt; line-height: 1.5; color: #4d4a43; margin-bottom: 1.5mm; }
+  .cta { margin-top: 9mm; background: #10151b; color: #fff; padding: 7mm 8mm; display: flex; justify-content: space-between; align-items: center; }
+  .cta .big { font-family: Georgia, serif; font-size: 15pt; }
+  .cta .small { font-size: 8pt; color: #c9c3b6; margin-top: 1.5mm; }
+  .cta .contact { text-align: right; font-size: 9pt; line-height: 1.5; color: #e7c98d; }
+  .fine { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; font-size: 6.6pt; line-height: 1.45; color: #8c8578; border-top: 1px solid #e9e0d1; padding-top: 2.5mm; }
+</style>
+</head>
+<body>
+  <section class="page">
+    <div class="hero">
+      <img src="assets/demo-room.png" alt="Blender interior demo scene">
+    </div>
+    <div class="brand">
+      <img src="../logo.png" alt="AI with Ezzi">
+      <div>
+        <div class="name">AI WITH EZZI</div>
+        <div class="sub">ARCHITECTURAL VISUALIZATION</div>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <div class="kicker">Blender rendering &amp; cinematic walkthroughs</div>
+      <h1>Don't just show them the design.<br><em>Let them experience it.</em></h1>
+      <p class="lede">We turn architectural drawings, 3D models and unfinished concepts into photorealistic stills and cinematic walkthroughs — so your clients can feel the space before it exists.</p>
+    </div>
+    <div class="lower">
+      <div class="label">Built for</div>
+      <div class="services">
+        <div class="service"><strong>Architects &amp; interior designers</strong><span>Present design intent with material, light and scale that drawings cannot carry.</span></div>
+        <div class="service"><strong>Developers &amp; construction teams</strong><span>Market unbuilt projects with visuals that feel like the finished place.</span></div>
+        <div class="service"><strong>Turnkey &amp; design-build</strong><span>Align clients on finishes and scope before construction starts.</span></div>
+        <div class="service"><strong>Sales &amp; marketing teams</strong><span>Stills, vertical reels and walkthroughs for campaigns and launches.</span></div>
+      </div>
+    </div>
+    <div class="footnote"><span>Demo image: original Blender scene created for this proposal — not a client project.</span><span>01 / 02</span></div>
+  </section>
+
+  <section class="page two">
+    <div class="topline"><span class="mark">AI with Ezzi — Proposal</span><span class="page-no">02 / 02</span></div>
+    <h2>A clear scope, a fixed timeline, a visual you can present.</h2>
+    <p class="intro">Every project starts from your drawings or model. We agree the camera, materials and mood, then build and render in Blender. You review stills before we commit to the final animation.</p>
+
+    <div class="packages">
+      <div class="row">
+        <div class="pkg">Stills</div>
+        <div class="what">4–6 high-resolution interior or exterior views. Material and lighting development, one revision round.</div>
+        <div class="price">from $450<small>USD</small></div>
+      </div>
+      <div class="row">
+        <div class="pkg">Walkthrough</div>
+        <div class="what">60–90 second cinematic walkthrough, 1080p, camera path, sound design, two revision rounds.</div>
+        <div class="price">from $1,500<small>USD</small></div>
+      </div>
+      <div class="row">
+        <div class="pkg">3BHK package</div>
+        <div class="what">90–120 second walkthrough plus 6 stills. Living, dining, kitchen, bedrooms and bathrooms.</div>
+        <div class="price">from $2,500<small>USD</small></div>
+      </div>
+      <div class="row">
+        <div class="pkg">Add-ons</div>
+        <div class="what">4K render +30%. Rush delivery +25%. Extra revision round $150. Vertical 9:16 cut for social.</div>
+        <div class="price">quoted<small>per project</small></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3>How it works</h3>
+        <ol>
+          <li>Send plans, elevations or a model, plus 3–5 reference images.</li>
+          <li>We agree scope, camera path and a fixed price.</li>
+          <li>You approve low-resolution stills before animation.</li>
+          <li>Final render, delivery and one round of refinements.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>What you receive</h3>
+        <ul>
+          <li>MP4 walkthrough in 16:9 and 9:16 where needed.</li>
+          <li>PNG stills sized for presentations and web.</li>
+          <li>Project files on request; assets remain yours after payment.</li>
+          <li>Typical 3BHK timeline: 10–14 working days.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div>
+        <div class="big">Bring your next project to life.</div>
+        <div class="small">Send a plan and we will reply with a scope and a firm quote within one working day.</div>
+      </div>
+      <div class="contact">WhatsApp<br>+92 318 2339392<br>AI with Ezzi</div>
+    </div>
+
+    <div class="fine">Pricing is indicative and confirmed per project after scope review. Renders are illustrative visualizations, not construction documents. No claim is made about sales or construction outcomes. Portfolio: https://hussainezzi.github.io/awe-portfolio/</div>
+  </section>
+</body>
+</html>
